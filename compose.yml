@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  vjenkins:
+    image: jenkins/jenkins:lts-jdk11
+    container_name: dev_jenkins
+    restart: always
+    ports:
+      - 8080:8080
+      - 5001:5001
+    environment:
+      - JENKINS_SLAVE_AGENT_PORT=50001
+    volumes:
+      - vjenkins-data:/var/jenkins_home  
+
+
+volumes:
+  vjenkins-data:
+      driver: local  
