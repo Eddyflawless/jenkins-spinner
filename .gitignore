@@ -13,6 +13,8 @@
 jobs/**
 !jobs/**/
 
+*.env
+
 #uncomment the following line to save next build numbers with config
 #!jobs/**/nextBuildNumber
 
