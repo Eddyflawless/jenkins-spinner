@@ -5,6 +5,8 @@ services:
     image: jenkins/jenkins:lts-jdk11
     container_name: dev_jenkins
     restart: always
+    networks:
+      - jenkins-network
     ports:
       - 8080:8080
       - 5001:5001
@@ -13,6 +15,10 @@ services:
     volumes:
       - vjenkins-data:/var/jenkins_home  
 
+    
+networks:
+  jenkins-network:
+    driver: bridge
 
 volumes:
   vjenkins-data:
