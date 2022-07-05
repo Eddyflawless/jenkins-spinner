@@ -1,0 +1,43 @@
+pipeline {
+    agent {
+        dockerfile true
+    }
+    options {
+        skipDefaultCheckouts(true)
+    }
+    
+    stages {
+
+        stage("clean workspace") {
+            steps {
+                cleanWs()
+            }
+        }
+
+        stage("checkout") {
+            steps{
+                checkout scm
+            }
+        }
+
+        stage('test'){
+
+            steps {
+                sh '''
+                git --version
+                node --version
+                curl --version
+                '''
+            }
+
+        }
+
+
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+
+}
