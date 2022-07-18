@@ -6,6 +6,7 @@
 
 !/jobs
 !/.gitignore
+.vscode
 
 
 #ignore all files in jobs subdirectories except for folders
